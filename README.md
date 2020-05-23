@@ -1,6 +1,6 @@
-# Mapping-OWLtoOAS
+# Mapping-OWL to OpenAPI Specification
 
-Generate an OpenAPI Specification (OAS) from OWL.
+Generate an [OpenAPI Specification (OAS)](http://spec.openapis.org/oas/v3.0.3) from [OWL](https://www.w3.org/TR/2004/REC-owl-guide-20040210/).
 
 **Authors:** Paola Espinoza-Arias and Daniel Garijo
 
