@@ -1,0 +1,488 @@
+@prefix : <https://w3id.org/example#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/example> .
+
+<https://w3id.org/example> rdf:type owl:Ontology ;
+                            owl:versionIRI <https://w3id.org/example/1.0.0> ;
+                            <http://purl.org/dc/terms/created> "Daniel Garijo"@en ,
+                                                               "May 11th, 2020"@en ;
+                            <http://purl.org/dc/terms/creator> "Paola Espinoza-Arias"@en ;
+                            <http://purl.org/dc/terms/description> "This is an ontology example to show how to represent its OWL definitions as OpenAPI Specification (OAS)."@en ;
+                            <http://purl.org/dc/terms/license> <http://creativecommons.org/licenses/by/2.0/> ;
+                            <http://purl.org/dc/terms/publisher> "Ontology Engineering Group - Universidad Politécnica de Madrid"@en ;
+                            <http://purl.org/dc/terms/title> "Ontology example"@en ;
+                            owl:versionInfo "1.0.0"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/contributor
+<http://purl.org/dc/terms/contributor> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/publisher
+<http://purl.org/dc/terms/publisher> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2002/07/owl#versionIRI
+owl:versionIRI rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2002/07/owl#versionInfo
+owl:versionInfo rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/example#belongsTo
+:belongsTo rdf:type owl:ObjectProperty ;
+           rdfs:domain :Professor ;
+           rdfs:range :Department ;
+           rdfs:label "belongs to"@en .
+
+
+###  https://w3id.org/example#enrolledIn
+:enrolledIn rdf:type owl:ObjectProperty ;
+            rdfs:domain :Student ;
+            rdfs:range :StudyProgram ;
+            rdfs:label "enrolled in"@en .
+
+
+###  https://w3id.org/example#hasCourse
+:hasCourse rdf:type owl:ObjectProperty ;
+           rdfs:domain :StudyProgram ;
+           rdfs:range :Course ;
+           rdfs:label "has Course"@en .
+
+
+###  https://w3id.org/example#hasDeparment
+:hasDeparment rdf:type owl:ObjectProperty ;
+              rdfs:domain :University ;
+              rdfs:range :Department ;
+              rdfs:label "has department"@en .
+
+
+###  https://w3id.org/example#hasProfessor
+:hasProfessor rdf:type owl:ObjectProperty ;
+              rdfs:domain :University ;
+              rdfs:range :Professor ;
+              rdfs:label "has Professor"@en .
+
+
+###  https://w3id.org/example#hasRecord
+:hasRecord rdf:type owl:ObjectProperty ,
+                    owl:FunctionalProperty ;
+           rdfs:domain :Student ;
+           rdfs:range :StudentRecord ;
+           rdfs:comment "has record"@en .
+
+
+###  https://w3id.org/example#hasRector
+:hasRector rdf:type owl:ObjectProperty ;
+           rdfs:domain :University ;
+           rdfs:range :Professor ;
+           rdfs:label "has rector"@en .
+
+
+###  https://w3id.org/example#hasStudent
+:hasStudent rdf:type owl:ObjectProperty ;
+            rdfs:domain :University ;
+            rdfs:range :Student ;
+            rdfs:label "has Student"@en .
+
+
+###  https://w3id.org/example#hasStudentEnrolled
+:hasStudentEnrolled rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Course ;
+                    rdfs:range :Student ;
+                    rdfs:label "has student enrolled"@en .
+
+
+###  https://w3id.org/example#hasStudyProgram
+:hasStudyProgram rdf:type owl:ObjectProperty ;
+                 rdfs:domain :University ;
+                 rdfs:range :StudyProgram ;
+                 rdfs:label "has Study Program"@en .
+
+
+###  https://w3id.org/example#isTaughtBy
+:isTaughtBy rdf:type owl:ObjectProperty ;
+            rdfs:domain :Course ;
+            rdfs:range :Professor ;
+            rdfs:label "is teached by"@en .
+
+
+###  https://w3id.org/example#takesCourse
+:takesCourse rdf:type owl:ObjectProperty ;
+             rdfs:domain :Student ;
+             rdfs:range :Course ;
+             rdfs:label "takes course"@en .
+
+
+###  https://w3id.org/example#teachesCourse
+:teachesCourse rdf:type owl:ObjectProperty ;
+               rdfs:domain :Professor ;
+               rdfs:range :Course ;
+               rdfs:label "teaches course"@en .
+
+
+###  https://w3id.org/example#teachesTo
+:teachesTo rdf:type owl:ObjectProperty ;
+           rdfs:domain :Professor ;
+           rdfs:range :Student ;
+           rdfs:label "teaches to"@en .
+
+
+###  https://w3id.org/example#worksIn
+:worksIn rdf:type owl:ObjectProperty ;
+         rdfs:domain :Professor ;
+         rdfs:range :University ;
+         rdfs:label "works in"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/example#address
+:address rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Person ;
+         rdfs:range xsd:string ;
+         rdfs:label "address"@en .
+
+
+###  https://w3id.org/example#birthDate
+:birthDate rdf:type owl:DatatypeProperty ,
+                    owl:FunctionalProperty ;
+           rdfs:domain :Person ;
+           rdfs:range xsd:dateTime ;
+           rdfs:label "date of birth"@en .
+
+
+###  https://w3id.org/example#courseName
+:courseName rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Course ;
+            rdfs:range xsd:string ;
+            rdfs:label "couse name"@en .
+
+
+###  https://w3id.org/example#departmentName
+:departmentName rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Department ;
+                rdfs:range xsd:string ;
+                rdfs:label "department name"@en .
+
+
+###  https://w3id.org/example#description
+:description rdf:type owl:DatatypeProperty ;
+             rdfs:domain [ rdf:type owl:Class ;
+                           owl:unionOf ( :Course
+                                         :StudyProgram
+                                       )
+                         ] ;
+             rdfs:range xsd:string ;
+             rdfs:label "description"@en .
+
+
+###  https://w3id.org/example#ects
+:ects rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Course ;
+      rdfs:range xsd:integer ;
+      <http://purl.org/dc/terms/description> "ects (European Credit Transfer System) of the course."@en ;
+      rdfs:label "ects"@en .
+
+
+###  https://w3id.org/example#email
+:email rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Person ;
+       rdfs:range xsd:string ;
+       rdfs:label "email"@en .
+
+
+###  https://w3id.org/example#gender
+:gender rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Person ;
+        rdfs:range [ rdf:type rdfs:Datatype ;
+                     owl:oneOf [ rdf:type rdf:List ;
+                                 rdf:first "female" ;
+                                 rdf:rest [ rdf:type rdf:List ;
+                                            rdf:first "male" ;
+                                            rdf:rest rdf:nil
+                                          ]
+                               ]
+                   ] ;
+        rdfs:label "gender"@en .
+
+
+###  https://w3id.org/example#identifier
+:identifier rdf:type owl:DatatypeProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain :Person ;
+            rdfs:range xsd:string ;
+            rdfs:label "identifier"@en .
+
+
+###  https://w3id.org/example#name
+:name rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Person ;
+      rdfs:range xsd:string ;
+      rdfs:label "name"@en .
+
+
+###  https://w3id.org/example#nationality
+:nationality rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Person ;
+             rdfs:range xsd:string ;
+             rdfs:label "nationality"@en .
+
+
+###  https://w3id.org/example#recordIdentifier
+:recordIdentifier rdf:type owl:DatatypeProperty ,
+                           owl:FunctionalProperty ;
+                  rdfs:domain :StudentRecord ;
+                  rdfs:range xsd:string ;
+                  rdfs:comment "record identifier"@en .
+
+
+###  https://w3id.org/example#researchField
+:researchField rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Professor ;
+               rdfs:range xsd:string ;
+               rdfs:label "research field"@en .
+
+
+###  https://w3id.org/example#studyProgramName
+:studyProgramName rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :StudyProgram ;
+                  rdfs:range xsd:string ;
+                  rdfs:label "study program name"@en .
+
+
+###  https://w3id.org/example#universityName
+:universityName rdf:type owl:DatatypeProperty ;
+                rdfs:domain :University ;
+                rdfs:range xsd:string ;
+                rdfs:label "university name"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/example#AmericanStudent
+:AmericanStudent rdf:type owl:Class ;
+                 rdfs:subClassOf :Student ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :nationality ;
+                                   owl:hasValue "American"
+                                 ] ;
+                 <http://purl.org/dc/terms/description> "Student who has an American nationality."@en ;
+                 rdfs:label "American Student"@en .
+
+
+###  https://w3id.org/example#BachelorProgram
+:BachelorProgram rdf:type owl:Class ;
+                 rdfs:subClassOf :StudyProgram ;
+                 owl:disjointWith :MasterProgram ,
+                                  :PhDProgram ;
+                 <http://purl.org/dc/terms/description> "Bachelor study program"@en ;
+                 rdfs:label "Bachelor Program"@en .
+
+
+###  https://w3id.org/example#Course
+:Course rdf:type owl:Class ;
+        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                          owl:onProperty :isTaughtBy ;
+                          owl:someValuesFrom :Professor
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasStudentEnrolled ;
+                          owl:minQualifiedCardinality "5"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Student
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasStudentEnrolled ;
+                          owl:maxQualifiedCardinality "20"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Student
+                        ] ;
+        <http://purl.org/dc/terms/description> "Course is where several things are teached to students."@en ;
+        rdfs:label "Course"@en .
+
+
+###  https://w3id.org/example#Department
+:Department rdf:type owl:Class ;
+            <http://purl.org/dc/terms/description> "Department of the University"@en ;
+            rdfs:label "Department"@en .
+
+
+###  https://w3id.org/example#MasterProgram
+:MasterProgram rdf:type owl:Class ;
+               rdfs:subClassOf :StudyProgram ;
+               owl:disjointWith :PhDProgram ;
+               <http://purl.org/dc/terms/description> "Master study program"@en ;
+               rdfs:label "Master Program"@en .
+
+
+###  https://w3id.org/example#Person
+:Person rdf:type owl:Class ;
+        <http://purl.org/dc/terms/description> "A human being regarded as an individual."@en ;
+        rdfs:label "Person"@en .
+
+
+###  https://w3id.org/example#PhDProgram
+:PhDProgram rdf:type owl:Class ;
+            rdfs:subClassOf :StudyProgram ;
+            <http://purl.org/dc/terms/description> "PhD study program"@en ;
+            rdfs:label "PhD Program"@en .
+
+
+###  https://w3id.org/example#Professor
+:Professor rdf:type owl:Class ;
+           rdfs:subClassOf :Person ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :teachesCourse ;
+                             owl:someValuesFrom :Course
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :worksIn ;
+                             owl:someValuesFrom :University
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :teachesTo ;
+                             owl:allValuesFrom :Student
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :belongsTo ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :Department
+                           ] ;
+           owl:disjointWith :Student ;
+           <http://purl.org/dc/terms/description> "A university academic."@en ;
+           rdfs:label "Professor"@en .
+
+
+###  https://w3id.org/example#ProfessorInArtificalIntelligence
+:ProfessorInArtificalIntelligence rdf:type owl:Class ;
+                                  rdfs:subClassOf [ owl:intersectionOf ( :Professor
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty :belongsTo ;
+                                                                           owl:hasValue <https://w3id.org/example/resource/Deparment/ArtificialIntelligenceDepartment>
+                                                                         ]
+                                                                       ) ;
+                                                    rdf:type owl:Class
+                                                  ] ;
+                                  <http://purl.org/dc/terms/description> "Professor who belongs to the Artificial Intelligence Deparment"@en ;
+                                  rdfs:label "Professor in Artificial Intelligence"@en .
+
+
+###  https://w3id.org/example#ProfessorInOtherDepartment
+:ProfessorInOtherDepartment rdf:type owl:Class ;
+                            rdfs:subClassOf [ rdf:type owl:Class ;
+                                              owl:complementOf :ProfessorInArtificalIntelligence
+                                            ] ;
+                            <http://purl.org/dc/terms/description> "All professors who doesn't belong to the Artificial Intelligence Department."@en ;
+                            rdfs:label "Professor in other deparment"@en .
+
+
+###  https://w3id.org/example#Student
+:Student rdf:type owl:Class ;
+         rdfs:subClassOf :Person ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :enrolledIn ;
+                           owl:someValuesFrom [ rdf:type owl:Class ;
+                                                owl:unionOf ( :BachelorProgram
+                                                              :MasterProgram
+                                                              :PhDProgram
+                                                            )
+                                              ]
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :takesCourse ;
+                           owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Course
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasRecord ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :StudentRecord
+                         ] ;
+         <http://purl.org/dc/terms/description> "A person who is studying at a university."@en ;
+         rdfs:label "Student"@en .
+
+
+###  https://w3id.org/example#StudentRecord
+:StudentRecord rdf:type owl:Class ;
+               <http://purl.org/dc/terms/description> "Record wich contains the details about the  enrolled study programs of the student."@en ;
+               rdfs:label "Student Record"@en .
+
+
+###  https://w3id.org/example#StudyProgram
+:StudyProgram rdf:type owl:Class ;
+              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasCourse ;
+                                owl:someValuesFrom :Course
+                              ] ;
+              <http://purl.org/dc/terms/description> "Study program which the course is part of."@en ;
+              rdfs:label "Study Program"@en .
+
+
+###  https://w3id.org/example#University
+:University rdf:type owl:Class ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasDeparment ;
+                              owl:someValuesFrom :Department
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasProfessor ;
+                              owl:someValuesFrom :Professor
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasStudent ;
+                              owl:someValuesFrom :Student
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasStudyProgram ;
+                              owl:someValuesFrom :StudyProgram
+                            ] ;
+            <http://purl.org/dc/terms/description> "A high-level educational institution in which students study for degrees and academic research is done."@en ;
+            rdfs:label "University"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://w3id.org/example/resource/Deparment/ArtificialIntelligenceDepartment
+<https://w3id.org/example/resource/Deparment/ArtificialIntelligenceDepartment> rdf:type owl:NamedIndividual ,
+                                                                                        :Department ;
+                                                                               :departmentName "Artificial Intelligence"@en .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

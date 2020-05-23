@@ -1,0 +1,1550 @@
+openapi: 3.0.3
+info:
+  description: This is an example for the OWL to OAS Specification
+  title: OWL to OAS Specification
+  version: v1.0
+paths:
+  /professors:
+    get:
+      description: Gets a list of all Professors
+      parameters:
+      - description: Filter by label
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Professor'
+                type: array
+          description: Successful response - returns an array of Professors.
+      summary: List all Professor entities
+      tags:
+      - Professor
+    put:
+      description: Create a new instance of Professor
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Professor'
+        description: A new Professor to be created
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Professor'
+          description: Created
+      summary: Create a new instance of Professor
+      tags:
+      - Professor
+  /professors/{id}:
+    get:
+      description: Gets an instance of Professor
+      parameters:
+      - description: Filter by resource id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Professor'
+          description: Successful response - returns an instance of Professor.
+      summary: Get an instance of Professor
+      tags:
+      - Professor
+    post:
+      description: Updates an existing Professor
+      parameters:
+      - description: The id of the Professor
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Professor'
+        description: An old instance of Professor to be updated
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Professor'
+          description: Updated sucessfully
+        404:
+          description: Not Found
+      summary: Update a Professor
+      tags:
+      - Professor
+    delete:
+      description: Delete an existing Professor
+      parameters:
+      - description: The ID of the resource
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        202:
+          description: Deleted
+        404:
+          description: Not Found
+      summary: Delete a Professor
+      tags:
+      - Professor
+  /students:
+    get:
+      description: Gets a list of all Students
+      parameters:
+      - description: Filter by label
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Student'
+                type: array
+          description: Successful response - returns an array of Students.
+      summary: List all Student entities
+      tags:
+      - Student
+    put:
+      description: Create a new instance of Student
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+        description: A new Student to be created
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+          description: Created
+      summary: Create a new instance of Student
+      tags:
+      - Student
+  /students/{id}:
+    get:
+      description: Gets an instance of Student
+      parameters:
+      - description: Filter by resource id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+          description: Successful response - returns an instance of Student.
+      summary: Get an instance of Student
+      tags:
+      - Student
+    post:
+      description: Updates an existing Student
+      parameters:
+      - description: The id of the Student
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+        description: An old instance of Student to be updated
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+          description: Updated sucessfully
+        404:
+          description: Not Found
+      summary: Update a Student
+      tags:
+      - Student
+    delete:
+      description: Delete an existing Student
+      parameters:
+      - description: The ID of the resource
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        202:
+          description: Deleted
+        404:
+          description: Not Found
+      summary: Delete a Student
+      tags:
+      - Student
+  /american-students:
+    get:
+      description: Gets a list of all American Students
+      parameters:
+      - description: Filter by label
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AmericanStudent'
+                type: array
+          description: Successful response - returns an array of American Students.
+      summary: List all American Students entities
+      tags:
+      - American Student
+    put:
+      description: Create a new instance of American Student
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AmericanStudent'
+        description: A new American Student to be created
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AmericanStudent'
+          description: Created
+      summary: Create a new instance of American Student
+      tags:
+      - American Student
+  /american-students/{id}:
+    get:
+      description: Gets an instance of American Student
+      parameters:
+      - description: Filter by resource id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AmericanStudent'
+          description: Successful response - returns an instance of American Student.
+      summary: Get an instance of American Student
+      tags:
+      - American Student
+    post:
+      description: Updates an existing American Student
+      parameters:
+      - description: The id of the American Student
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AmericanStudent'
+        description: An old instance of American Student to be updated
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AmericanStudent'
+          description: Updated sucessfully
+        404:
+          description: Not Found
+      summary: Update a American Student
+      tags:
+      - American Student
+    delete:
+      description: Delete an existing American Student
+      parameters:
+      - description: The ID of the resource
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        202:
+          description: Deleted
+        404:
+          description: Not Found
+      summary: Delete a American Student
+      tags:
+      - American Student
+  /studyprograms:
+    get:
+      description: Gets a list of all Study Programs
+      parameters:
+      - description: Filter by label
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/StudyProgram'
+                type: array
+          description: Successful response - returns an array of Study Programs.
+      summary: List all Study Program entities
+      tags:
+      - Study Program
+    put:
+      description: Create a new instance of Study Program
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StudyProgram'
+        description: A new Study Program to be created
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudyProgram'
+          description: Created
+      summary: Create a new instance of Study Program
+      tags:
+      - Study Program
+  /studyprograms/{id}:
+    get:
+      description: Gets an instance of Study Program
+      parameters:
+      - description: Filter by resource id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudyProgram'
+          description: Successful response - returns an array of Study Programs.
+      summary: List all Study Program entities
+      tags:
+      - Study Program
+    post:
+      description: Updates an existing Study Program
+      parameters:
+      - description: The id of the Study Program
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StudyProgram'
+        description: An old instance of Study Program to be updated
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudyProgram'
+          description: Updated sucessfully
+        404:
+          description: Not Found
+      summary: Update a Study Program
+      tags:
+      - Study Program
+    delete:
+      description: Delete an existing Study Program
+      parameters:
+      - description: The ID of the resource
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        202:
+          description: Deleted
+        404:
+          description: Not Found
+      summary: Delete a Study Program
+      tags:
+      - Study Program
+  /courses:
+    get:
+      description: Gets a list of all Courses
+      parameters:
+      - description: Filter by label
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Course'
+                type: array
+          description: Successful response - returns an array of Courses.
+      summary: List all Course entities
+      tags:
+      - Course
+    put:
+      description: Create a new instance of Course
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Course'
+        description: A new Courses to be created
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+          description: Created
+      summary: Create a new instance of Course
+      tags:
+      - Course
+  /courses/{id}:
+    get:
+      description: Gets an instance of Course
+      parameters:
+      - description: Filter by resource id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+          description: Successful response - returns an instance of Course.
+      summary: Get an instance of Course
+      tags:
+      - Course
+    post:
+      description: Updates an existing Course
+      parameters:
+      - description: The id of the Course
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Course'
+        description: An old instance of Course to be updated
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+          description: Updated sucessfully
+        404:
+          description: Not Found
+      summary: Update a Course
+      tags:
+      - Course
+    delete:
+      description: Delete an existing Course
+      parameters:
+      - description: The ID of the resource
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        202:
+          description: Deleted
+        404:
+          description: Not Found
+      summary: Delete a Course
+      tags:
+      - Course
+  /departments:
+    get:
+      description: Gets a list of all Departments
+      parameters:
+      - description: Filter by label
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Department'
+                type: array
+          description: Successful response - returns an array of Departments.
+      summary: List all Department entities
+      tags:
+      - Department
+    put:
+      description: Create a new instance of Department
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Department'
+        description: A new Deparment to be created
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Department'
+          description: Created
+      summary: Create a new instance of Department
+      tags:
+      - Department
+  /departments/{id}:
+    get:
+      description: Gets an instance of Department
+      parameters:
+      - description: Filter by resource id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Department'
+          description: Successful response - returns an instance of Department.
+      summary: Get an instance of Department
+      tags:
+      - Department
+    post:
+      description: Updates an existing Department
+      parameters:
+      - description: The id of the Department
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Department'
+        description: An old instance of Department to be updated
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Department'
+          description: Updated sucessfully
+        404:
+          description: Not Found
+      summary: Update a Department
+      tags:
+      - Department
+    delete:
+      description: Delete an existing Department
+      parameters:
+      - description: The ID of the resource
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        202:
+          description: Department
+        404:
+          description: Not Found
+      summary: Delete a Department
+      tags:
+      - Department
+  /universities:
+    get:
+      description: Gets a list of all Universities
+      parameters:
+      - description: Filter by label
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/University'
+                type: array
+          description: Successful response - returns an array of Universities.
+      summary: List all University entities
+      tags:
+      - University
+    put:
+      description: Create a new instance of University
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/University'
+        description: A new University to be created
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/University'
+          description: Created
+      summary: Create a new instance of University
+      tags:
+      - University
+  /universities/{id}:
+    get:
+      description: Gets an instance of University
+      parameters:
+      - description: Filter by resource id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/University'
+          description: Successful response - returns an instance of University.
+      summary: Get an instance of University
+      tags:
+      - University
+    post:
+      description: Updates an existing University
+      parameters:
+      - description: The id of the University
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/University'
+        description: An old instance of University to be updated
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/University'
+          description: Updated sucessfully
+        404:
+          description: Not Found
+      summary: Update a University
+      tags:
+      - University
+    delete:
+      description: Delete an existing University
+      parameters:
+      - description: The ID of the resource
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        202:
+          description: University deleted
+        404:
+          description: Not Found
+      summary: Delete a University
+      tags:
+      - University
+  /student-records:
+    get:
+      description: Gets a list of all Student Records
+      parameters:
+      - description: Filter by label
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/StudentRecord'
+                type: array
+          description: Successful response - returns an array of Student Records.
+      summary: List all Student Record entities
+      tags:
+      - Student Record
+    put:
+      description: Create a new instance of Student Record
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StudentRecord'
+        description: A new Student Record to be created
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudentRecord'
+          description: Created
+      summary: Create a new instance of Student Record
+      tags:
+      - Student Record
+  /student-records/{id}:
+    get:
+      description: Gets an instance of Student Record
+      parameters:
+      - description: Filter by resource id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudentRecord'
+          description: Successful response - returns an instance of Student Record.
+      summary: Get an instance of Student Record
+      tags:
+      - Student Record
+    post:
+      description: Updates an existing Student Record
+      parameters:
+      - description: The id of the Student Record
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StudentRecord'
+        description: An old instance of Student Record to be updated
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudentRecord'
+          description: Updated sucessfully
+        404:
+          description: Not Found
+      summary: Update a Student Record
+      tags:
+      - Student Record
+    delete:
+      description: Delete an existing Student Record
+      parameters:
+      - description: The ID of the resource
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        202:
+          description: Student Record deleted
+        404:
+          description: Not Found
+      summary: Delete a Student Record
+      tags:
+      - Student Record
+  /master-programs:
+    get:
+      description: Gets a list of all Master Programs
+      parameters:
+      - description: Filter by label
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/MasterProgram'
+                type: array
+          description: Successful response - returns an array of Master Programs.
+      summary: List all Master Program entities
+      tags:
+      - Master Program
+    put:
+      description: Create a new instance of Master Program
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MasterProgram'
+        description: A new Master Program to be created
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MasterProgram'
+          description: Created
+      summary: Create a new instance of Master Program
+      tags:
+      - Master Program
+  /master-programs/{id}:
+    get:
+      description: Gets an instance of Master Program
+      parameters:
+      - description: Filter by resource id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MasterProgram'
+          description: Successful response - returns an instance of MasterProgram.
+      summary: Get an instance of Master Program
+      tags:
+      - Master Program
+    post:
+      description: Updates an existing Master Program
+      parameters:
+      - description: The id of the Master Program
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MasterProgram'
+        description: An old instance of Master Program to be updated
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MasterProgram'
+          description: Updated sucessfully
+        404:
+          description: Not Found
+      summary: Update a Master Program
+      tags:
+      - Master Program
+    delete:
+      description: Delete an existing Master Program
+      parameters:
+      - description: The ID of the resource
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        202:
+          description: Master Program deleted
+        404:
+          description: Not Found
+      summary: Delete a Master Program
+      tags:
+      - Master Program
+  /bachelor-programs:
+    get:
+      description: Gets a list of all Bachelor Programs
+      parameters:
+      - description: Filter by label
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/BachelorProgram'
+                type: array
+          description: Successful response - returns an array of Bachelor Programs.
+      summary: List all Bachelor Program entities
+      tags:
+      - Bachelor Program
+    put:
+      description: Create a new instance of Bachelor Program
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BachelorProgram'
+        description: A new Bachelor Program to be created
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BachelorProgram'
+          description: Created
+      summary: Create a new instance of Bachelor Program
+      tags:
+      - Bachelor Program
+  /bachelor-programs/{id}:
+    get:
+      description: Gets an instance of Bachelor Program
+      parameters:
+      - description: Filter by resource id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BachelorProgram'
+          description: Successful response - returns an instance of Bachelor Program.
+      summary: Get an instance of Bachelor Program
+      tags:
+      - Bachelor Program
+    post:
+      description: Updates an existing Bachelor Program
+      parameters:
+      - description: The id of the Bachelor Program
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BachelorProgram'
+        description: An old instance of Bachelor Program to be updated
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BachelorProgram'
+          description: Updated sucessfully
+        404:
+          description: Not Found
+      summary: Update a Bachelor Program
+      tags:
+      - Bachelor Program
+    delete:
+      description: Delete an existing Bachelor Program
+      parameters:
+      - description: The ID of the resource
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        202:
+          description: Bachelor Program deleted
+        404:
+          description: Not Found
+      summary: Delete a Bachelor Program
+      tags:
+      - Bachelor Program
+  /phd-programs:
+    get:
+      description: Gets a list of all PhD Programs
+      parameters:
+      - description: Filter by label
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PhDProgram'
+                type: array
+          description: Successful response - returns an array of PhD Programs.
+      summary: List all PhD Program entities
+      tags:
+      - PhD Program
+    put:
+      description: Create a new instance of PhD Program
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PhDProgram'
+        description: A new PhD Program to be created
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PhDProgram'
+          description: Created
+      summary: Create a new instance of PhD Program
+      tags:
+      - PhD Program
+  /phd-programs/{id}:
+    get:
+      description: Gets an instance of PhD Program
+      parameters:
+      - description: Filter by resource id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PhDProgram'
+          description: Successful response - returns an instance of PhD Program.
+      summary: Get an instance of PhD Program
+      tags:
+      - PhD Program
+    post:
+      description: Updates an existing PhD Program
+      parameters:
+      - description: The id of the PhD Program
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PhDProgram'
+        description: An old instance of PhD Program to be updated
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PhDProgram'
+          description: Updated sucessfully
+        404:
+          description: Not Found
+      summary: Update a PhD Program
+      tags:
+      - PhD Program
+    delete:
+      description: Delete an existing PhD Program
+      parameters:
+      - description: The ID of the resource
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        202:
+          description: PhD Program deleted
+        404:
+          description: Not Found
+      summary: Delete a PhD Program
+      tags:
+      - PhD Program
+  /professors-in-artificial-intelligence:
+    get:
+      description: Gets a list of all Professors In Artificial Intelligence
+      parameters:
+      - description: Filter by label
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ProfessorInArtificialIntelligence'
+                type: array
+          description: Successful response - returns an array of Professors In Artificial Intelligence.
+      summary: List all Professor In Artificial Intelligence entities
+      tags:
+      - Professor In Artificial Intelligence
+    put:
+      description: Create a new instance of Professor In Artificial Intelligence
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProfessorInArtificialIntelligence'
+        description: A new Professor In Artificial Intelligence to be created
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfessorInArtificialIntelligence'
+          description: Created
+      summary: Create a new instance of Professor In Artificial Intelligence
+      tags:
+      - Professor In Artificial Intelligence
+  /professors-in-artificial-intelligence/{id}:
+    get:
+      description: Gets an instance of Professor In Artificial Intelligence
+      parameters:
+      - description: Filter by resource id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfessorInArtificialIntelligence'
+          description: Successful response - returns an instance of Professor In Artificial Intelligence.
+      summary: Get an instance of Professor In Artificial Intelligence
+      tags:
+      - Professor In Artificial Intelligence
+    post:
+      description: Updates an existing Professor In Artificial Intelligence
+      parameters:
+      - description: The id of the Professor In Artificial Intelligence
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProfessorInArtificialIntelligence'
+        description: An old instance of Professor In Artificial Intelligence to be updated
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfessorInArtificialIntelligence'
+          description: Updated sucessfully
+        404:
+          description: Not Found
+      summary: Update a Professor In Artificial Intelligence
+      tags:
+      - Professor In Artificial Intelligence
+    delete:
+      description: Delete an existing Professor In Artificial Intelligence
+      parameters:
+      - description: The ID of the resource
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        202:
+          description: Deleted
+        404:
+          description: Not Found
+      summary: Delete a Professor In Artificial Intelligence
+      tags:
+      - Professor In Artificial Intelligence
+  /professors-in-other-deparment:
+    get:
+      description: Gets a list of all Professors In Other Department
+      parameters:
+      - description: Filter by label
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ProfessorInOtherDepartment'
+                type: array
+          description: Successful response - returns an array of Professors In Other Department.
+      summary: List all Professor In Other Department entities
+      tags:
+      - Professor In Other Department
+    put:
+      description: Create a new instance of Professor In Other Department
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProfessorInOtherDepartment'
+        description: A new Professor In Other Department to be created
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfessorInOtherDepartment'
+          description: Created
+      summary: Create a new instance of Professor In Other Department
+      tags:
+      - Professor In Other Department
+  /professors-in-oder-deparments/{id}:
+    get:
+      description: Gets an instance of Professor In Other Department
+      parameters:
+      - description: Filter by resource id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfessorInOtherDepartment'
+          description: Successful response - returns an instance of Professor In Other Department.
+      summary: Get an instance of Professor In Other Department
+      tags:
+      - Professor In Other Department
+    post:
+      description: Updates an existing Professor In Other Department
+      parameters:
+      - description: The id of the Professor In Other Department
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProfessorInOtherDepartment'
+        description: An old instance of Professor In Other Department to be updated
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfessorInOtherDepartment'
+          description: Updated sucessfully
+        404:
+          description: Not Found
+      summary: Update a Professor In Other Department
+      tags:
+      - Professor In Other Department
+    delete:
+      description: Delete an existing Professor In Other Department
+      parameters:
+      - description: The ID of the resource
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        202:
+          description: Deleted
+        404:
+          description: Not Found
+      summary: Delete a Professor In Other Department
+      tags:
+      - Professor In Other Department
+components:
+    schemas:
+      Person:
+        type: object
+        properties:
+          identifier:
+            items:
+              type: string
+            type: array
+            maxItems: 1
+          name:
+            type: string
+          birthdate:
+            items:
+              type: string
+              format: date
+            type: array
+            maxItems: 1
+          email:
+            type: string
+          nationality:
+            type: string
+          gender:
+            type: string
+            enum:
+             - male
+             - female
+      Professor:
+        allOf:
+        - $ref: '#/components/schemas/Person'
+        - type: object
+          properties:
+            researchField:
+              type: string
+            teachesTo:
+              items:
+                $ref: '#/components/schemas/Student'
+              type: array
+            teachesCourse:
+              items:
+                $ref: '#/components/schemas/Course'
+              type: array
+            worksIn:
+              items:
+                $ref: '#/components/schemas/University'
+              type: array
+            belongsTo:
+              type: array
+              items:
+               $ref: '#/components/schemas/Department'
+              maxItems: 1
+              minItems: 1
+          required:
+            - teachesCourse
+            - worksIn
+      Student:
+        allOf:
+        - $ref: '#/components/schemas/Person'
+        - type: object
+        properties:
+          takesCourse:
+            type: array
+            items:
+              $ref: '#/components/schemas/Course'
+            minItems: 2
+          hasRecord:
+            type: array
+            items:
+              $ref: '#/components/schemas/StudentRecord'
+            minItems: 1
+            maxItems: 1
+          enrolledIn:
+            type: array
+            items:
+              type: object
+              anyOf:
+                - $ref: '#/components/schemas/MasterProgram'
+                - $ref: '#/components/schemas/PhDProgram'
+                - $ref: '#/components/schemas/BachelorProgram'
+        required:
+          - enrolledIn
+      University:
+        type: object
+        properties:
+          universityName:
+            type: string
+          hasStudent:
+            type: array
+            items:
+              $ref: '#/components/schemas/Student'
+          hasStudyProgram:
+            type: array
+            items:
+              $ref: '#/components/schemas/StudyProgram'
+          hasProfessor:
+            type: array
+            items:
+              $ref: '#/components/schemas/Professor'
+          hasDepartment:
+            type: array
+            items:
+              $ref: '#/components/schemas/Department'
+        required:
+          - hasProfessor
+          - hasStudent
+          - hasStudyProgram
+          - hasDepartment
+      StudyProgram:
+        type: object
+        properties:
+          studyProgramName:
+            type: string
+          description:
+            type: string
+          ects:
+            type: integer
+            format: int32
+          hasCourse:
+            items:
+              $ref: '#/components/schemas/Course'
+            type: array
+        required:
+          - hasCourse
+      MasterProgram:
+        allOf:
+        - $ref: '#/components/schemas/StudyProgram'
+        - type: object
+      PhDProgram:
+        allOf:
+        - $ref: '#/components/schemas/StudyProgram'
+        - type: object
+      BachelorProgram:
+        allOf:
+        - $ref: '#/components/schemas/StudyProgram'
+        - type: object
+      Course:
+        type: object
+        properties:
+          name:
+            default: 'algo'
+            type: string
+          ects:
+            type: integer
+            format: int32
+          courseDescription:
+            type: string
+          isTaughtBy:
+            items:
+                $ref: '#/components/schemas/Professor'
+            type: array
+          hasStudentEnrolled:
+            items:
+              $ref: '#/components/schemas/Student'
+            type: array
+            minItems: 5
+            maxItems: 20
+        required:
+          - isTaughtBy
+      StudentRecord:
+        type: object
+        properties:
+          recordIdentifier:
+            items:
+              type: string
+            type: array
+            maxItems: 1
+          containsStudyProgram:
+            items:
+              $ref: '#/components/schemas/StudyProgram'
+      AmericanStudent:
+        allOf:
+          - $ref: '#/components/schemas/Student'
+        properties:
+          nationality:
+            default: "American"
+      Department:
+        type: object
+        properties:
+          departmentName:
+            type: string
+      ProfessorInArtificialIntelligence:
+        allOf:
+          - $ref: '#/components/schemas/Professor'
+        properties:
+          belongsTo:
+            type: string
+            format: uri
+            default: https://w3id.org/example/resource/Department/ArtificialIntelligenceDepartment 
+      ProfessorInOtherDepartment:
+        not:
+          type: object
+          $ref: '#/components/schemas/ProfessorInArtificialIntelligence'
