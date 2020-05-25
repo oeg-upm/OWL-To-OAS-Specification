@@ -1,4 +1,4 @@
-site_name: OWL to OAS mapping specification
+site_name: Mapping OWL to OAS
 nav:
   - Mapping: mapping.md
   - Implementations: implementations.md
