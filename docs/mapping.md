@@ -13,6 +13,8 @@ This document describes how to generate an [OpenAPI Specification (OAS)](http://
 
 **License:** [License (Apache-2.0)](https://github.com/paoespinozarias/Mapping-OWLtoOAS/blob/master/LICENSE)
 
+**Want to contribute?:** Check out our [GitHub repository](https://github.com/oeg-upm/OWL-To-OAS-Specification)
+
 ## Introduction
 
 This is a document defining how to translate [OWL](https://www.w3.org/TR/owl2-overview/) to [OAS](https://github.com/OAI/OpenAPI-Specification) to allow developers to determine how ontologies may be represented as an interface descriptions for REST APIs. In this document you will find the similiarities between the two specifications a well as simple examples of how an ontology code is represented in the OAS.
