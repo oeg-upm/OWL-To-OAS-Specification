@@ -1,10 +1,12 @@
 # Mapping-OWL to OpenAPI Specification (OAS)
 
-Generate an [OpenAPI Specification (OAS)](http://spec.openapis.org/oas/v3.0.3) from [OWL](https://www.w3.org/TR/2004/REC-owl-guide-20040210/).
+This document describes how to generate an [OpenAPI Specification (OAS)](http://spec.openapis.org/oas/v3.0.3) from [OWL](https://www.w3.org/TR/2004/REC-owl-guide-20040210/).
 
-**Authors:** Paola Espinoza-Arias and Daniel Garijo
+**Authors:** 
+  * **Paola Espinoza-Arias** (Ontology Engineering Group, Universidad Politecnica de Madrid) 
+  * **Daniel Garijo** (Information Sciences Institute, University of Southern California)
 
-**Versions:** 1.0.0
+**Version:** 1.0.0
 
 **Release date:** 23/05/2020
 
@@ -76,7 +78,7 @@ The prefixes that will be used in this section are:
 
 A class will be treated as an object in OAS according to the [Schema Object](#schemaObject) definition as it is explained in this section. However, it is worth noting that a class also must be included in API paths and operations, which will be explained [later]((#paths-and-operations) ) in this document.
 
-[`OWL`](#owl) | [`OAS`](#oas) | Comments
+OWL| OAS | Comments
 ------ | -------- | --------
 `owl:Class` | `Schema Object` | It should be defined as a [Schema Object](#schemaObject) in the [Component Object](#componentsObject) definition. The `Schema Object` must be a`type: object`. The schema name should be the `rdfs:label` value defined in the OWL Class. It is worth noting that the name should not contain blank spaces. [See example](#classexample)
 **Class axioms** |
@@ -162,7 +164,7 @@ OWL |OAS | Comments
 A property will be treated as an object property in OAS according to the [Schema Object](#schemaObject) definition. In this section, details on how to define data and object properties are presented.
 
 
-[`OWL`](#owl) | [`OAS`](#oas) | Comments
+OWL | OAS | Comments
 ------ | -------- | --------
 `owl:DatatypeProperty` | `properties` | It should be defined as a property of the corresponding [Schema Object](#schemaObject) instance, as aforementioned in the `owl:Class` mapping. The property name will be the `rdfs:label` value defined in the data property. It is worth noting that the name should not contain blank spaces. [See example](#datatypePropertyExample)
 `owl:ObjectProperty` | `properties` | It should be defined as a property of the corresponding [Schema Object](#schemaObject) instance, as aforementioned in the `owl:Class` mapping. The property name will be the `rdfs:label` value defined in the object property. It is worth noting that the name should not contain blank spaces. [See example](#objectPropertyExample)
@@ -345,7 +347,7 @@ components:
 
 Depending on the restriction, it will be treated according to the details provided below.
 
-[`OWL`](#owl) | [`OAS`](#oas) | Comments
+OWL | OAS | Comments
 ------ | -------- | --------
 `owl:onProperty` |  `properties` | It should refers to the property name where the restriction is applied.
 `owl:onClass` | `Schema Object` | It should refers to the schema name where the restriction is applied.
@@ -581,7 +583,7 @@ components:
 
 In this section some complex combinations allowed in OWL are presented in the OAS.
 
-[`OWL`](#owl) | [`OAS`](#oas) | Comments
+OWL |OAS| Comments
 ------ | -------- | --------
 `owl:intersectionOf` | `allOf` | It should be defined as `allOf` which validates the value against all the subschemas. [See example](#intersectionOfExample)|
 `owl:unionOf` | `anyOf` | It should be defined as `anyOf` which validates the value against any (one or more) the subschemas. [See example](#unionOfExample) |
@@ -870,7 +872,7 @@ Finally, the following examples show the aforementioned operations for the Profe
 
 In this section the mapping between the most common annotation properties describing OWL ontologies and the OAS specification is presented.
 
- [`OWL`](#owl) | [`OAS`](#oas) | Comments
+ OWL | OAS | Comments
  ------ | -------- | --------
 `dcterms:title` |`title`| It should described with its value in the `title` field of [Info Object](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#infoObject).   
 `rdfs:label`, `skos:label` |  `Schema Object`'s _name_  | It should be applied in the [Schema Object](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#schemaObject) as the name of the corresponding class or property. Note that  _name_ is not an OAS keyword for the `Schema Object`, but it is provided as a way to make sense to that similiarity. In addition, the label may be used in the [Operation Object](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#operation-object) as the value of the `tags` field. Tags can be used for logical grouping of operations by resources or any other qualifier.|
