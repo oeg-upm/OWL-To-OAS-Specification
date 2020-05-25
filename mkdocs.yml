@@ -1,4 +1,4 @@
-site_name: OBA documentation
+site_name: OWL to OAS mapping specification
 nav:
   - Mapping: mapping.md
   - Implementations: implementations.md
