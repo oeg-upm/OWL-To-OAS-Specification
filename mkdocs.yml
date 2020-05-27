@@ -1,6 +1,7 @@
 site_name: Mapping OWL to OAS
 nav:
   - Mapping: mapping.md
+  - Implementations: implementations.md
 theme:
   name: material
 
