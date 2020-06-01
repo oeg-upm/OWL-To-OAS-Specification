@@ -2,9 +2,9 @@
 
 This document describes how to generate an [OpenAPI Specification (OAS)](http://spec.openapis.org/oas/v3.0.3) from [OWL](https://www.w3.org/TR/2004/REC-owl-guide-20040210/).
 
-**Authors:** 
+**Authors:**
 
-  * **Paola Espinoza-Arias** (Ontology Engineering Group, Universidad Politecnica de Madrid) 
+  * **Paola Espinoza-Arias** (Ontology Engineering Group, Universidad Politecnica de Madrid)
   * **Daniel Garijo** (Information Sciences Institute, University of Southern California)
 
 **Version:** 1.0.0
@@ -726,6 +726,9 @@ components:
 [Back to the Boolean combinations mapping](#booleancombinations)
 
 
+- subclass of the intersection between classes: ClassA `rdfs:subClassOf` (ClassB `owl:intersectionOf` ClassC), e.g. Father is a Man and Parent.
+- subclass of the union between classes: ClassA `rdfs:subClassOf` (ClassB `owl:unionOf` ClassC), e.g. Parent is equivalent to the union of Mother and Father.
+
 #### <a id="pathsandoperations"></a>Paths and Operations
 
 ##### <a id="paths"></a>Paths
@@ -734,7 +737,7 @@ Paths in OAS are resources that the API exposes therefore its similiarity with O
 
 OWL | OAS | Comments
 ---|:---:|---
-`owl:Class`  | `/{path}`  | It should be defined as a `/{path}` (following the  [Path Item Object](#pathItemObject) format). The `{path}` value corresponds to the `rdfs:label` value defined in the OWL Class. Note that the label value need to be defined in plural and following a lowercase capitalization according to the naming practices in REST API. In addition if the label value is composed by several words they should be provided with a hyphen delimiter.
+`owl:Class`  | `/{path}`  | It should be defined as a `/{path}` (following the  [Path Item Object](#pathItemObject) format). The `{path}` value corresponds to the `rdfs:label` value defined in the OWL Class. Note that the label value needs to be defined in plural and as lowercase according to the naming practices in REST API. In addition if the label value is composed by several words they should be provided with a hyphen delimiter.
 
 **Path example**
 
@@ -883,13 +886,35 @@ In this section the mapping between the most common annotation properties descri
 
 Note that due to the aforementioned annotation properties are usually included in several languages (e.g. `xml:lang="en"`)  it will be necessary to specify what language will be used in the OAS. This decision will depend on the developer.
 
-Finally, in those cases where the label annotations are not included in the ontology it will be necessary to adopt other naming strategy for the Schema Objects and Paths Items. The alternative strategy may be to take the term name from the ontology term path, e.g. http://w3id.org/example/def/#term_name. However, this strategy may not be useful when the ontology has opaque URIs because a human being looking at the schema or path can't figure out what’s on the other end. Thus, developers should name them is such a manner that conveys an understandable REST API’s resource model to its potential client developers instead of opaque design.
+#### <a id="resourcenaming"></a>Path naming strategy
+
+In REST APIs a clear strategy on how to define resource URIs is defined. Therefore, in the OAS this strategy should be adopted in order to be consistent with the REST API paradigm. Summarizing, the main rules on how resource URIs should be structured are:
+- Use a slash separator to indicate a hierarchical relationship.
+- Use hyphens instead of underscores to delimit words.
+- Use lowercase letters in URI paths.
+- Use plural for naming collections.
+
+Regarding this mapping, when the label annotation (`rdfs:label`, `skos:label`) of the ontology class is available the aforementioned rules should be adopted when translating the label value to the corresponding Path Item name.
+
+However, in those cases where label annotations are not included in the ontology it will be necessary to adopt other naming strategy for Paths Items. The alternative strategy may be taking the term name from the ontology term path, e.g. http://w3id.org/example/def/#term_name. In this solution it is important to consider that the resource naming strategy in ontologies is not made in a standardized way and the only the rule is to keep it consistent, whichever is chosen. As a result, two cases may happen:
+
+1. _Meaningful URIs_, where ontology classes and properties have natural language names. For example, following a UpperCamelCase format.
+2. _Opaque URIs_, where ontology classes and properties have obfuscated names. For exmaple, using specific codes.
+
+In the first case, the REST API naming strategy may be followed in the same manner as the label translation to the corresponding Path Item. In the second case, this strategy may not be useful because a human being looking at the schema or path can not figure out what is on the other end. Thus, developers should name the Path Item is such a manner that conveys an understandable REST API’s resource to its potential client developers instead of the opaque design.
+
+#### <a id="resourcenaming"></a>Schema Objects naming strategy
+
+The Schema Objects naming  may include objects and properties and, as the case of Path Items, when the label annotation (`rdfs:label`, `skos:label`) of the ontology class/property is available the label value must be used to name them. To this end, blank spaces must be removed and depending on the developer's decision the names may follow, for example, a UpperCamelCase structure to name objects and a lowerCamelCase to name properties. Remember that these names must be in singular.
+
+However, in those cases where label annotations are not included in the ontology it will be necessary to adopt other naming strategy for Schema Objects. The alternative strategy may be taking the term name from the ontology term path, e.g. http://w3id.org/example/def/#term_name. This strategy might involve two cases that may be solved according as follows:
+1. _Meaningful URIs_, in this case the naming strategy may be followed in the same manner as the label value translation to the corresponding Schema Object.
+2. _Opaque URIs_, in this case developers should name the Path Item is such a manner that conveys an understandable REST API’s resource to its potential client developers instead of the opaque design.
+
 
 #### <a id="limitations"></a>Limitations
 
-It is worth noting that complex representations are not supported by the mapping. Some of these cases are:
+It is worth noting that complex boolean combinations are not supported by the mapping. Some of these cases are:
 
-- subclass of the intersection between classes: ClassA `rdfs:subClassOf` (ClassB `owl:intersectionOf` ClassC), e.g. Father is a Man and Parent.
-- subclass of the union between classes: ClassA `rdfs:subClassOf` (ClassB `owl:unionOf` ClassC), e.g. Parent is equivalent to the union of Mother and Father.
 - subclass of the intersection between a class and the negation of other class: ClassA `rdfs:subClassOf` (ClassB `owl:intersectionOf` (`owl:complementOf` ClassC)), e.g. Childless Person is a Person who is not a Parent.
 - Complex range restrictions on a property such as the union of two intersections: (ClassA `owl:intersectionOf` ClassB) `owl:unionOf` (ClassC `owl:intersectionOf` ClassD)
