@@ -1,0 +1,42 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#>.
+@prefix ex: <https://w3id.org/example#>.
+@prefix ex-resource: <https://w3id.org/example/resource/>.
+
+<https://w3id.org/example/resource/Professor/Y4271268Y> a ex:ProfessorInArtificialIntelligence;
+    ex:identifier "Y4271268Y"^^xsd:string;
+    ex:belongsTo "https://w3id.org/example/resource/Department/ArtificialIntelligenceDepartment"^^xsd:anyURI;
+    ex:worksIn <https://w3id.org/example/resource/University/1>;
+    ex:name "Paola Espinoza"^^xsd:string;
+    ex:birthDate "1980-03-14"^^xsd:dateTime;
+    ex:address "Calle San Crispin 49"^^xsd:string;
+    ex:nationality "Ecuadorian"^^xsd:string;
+    ex:gender "female"^^xsd:string;
+    ex:researchField "Ontology Engineering"^^xsd:string;
+    ex:email "pespinoza@fi.upm.es"^^xsd:string;
+    ex:hasDegree <https://w3id.org/example/resource/Degree/MS>.
+<https://w3id.org/example/resource/Professor/11269837K> a ex:ProfessorInArtificialIntelligence;
+    ex:identifier "11269837K"^^xsd:string;
+    ex:belongsTo "https://w3id.org/example/resource/Department/ArtificialIntelligenceDepartment"^^xsd:anyURI;
+    ex:worksIn <https://w3id.org/example/resource/University/1>;
+    ex:name "Daniel Garijo"^^xsd:string;
+    ex:birthDate "1985-06-23"^^xsd:dateTime;
+    ex:address "Paseo de los Ciruelos 123"^^xsd:string;
+    ex:nationality "Spanish"^^xsd:string;
+    ex:gender "male"^^xsd:string;
+    ex:researchField "Open Science"^^xsd:string;
+    ex:email "dgarijo@isi.edu"^^xsd:string;
+    ex:hasDegree <https://w3id.org/example/resource/Degree/PhD>.
+<https://w3id.org/example/resource/Professor/30000052W> a ex:ProfessorInArtificialIntelligence;
+    ex:identifier "30000052W"^^xsd:string;
+    ex:belongsTo "https://w3id.org/example/resource/Department/ArtificialIntelligenceDepartment"^^xsd:anyURI;
+    ex:worksIn <https://w3id.org/example/resource/University/1>;
+    ex:name "Oscar Corcho"^^xsd:string;
+    ex:birthDate "1975-08-02"^^xsd:dateTime;
+    ex:address "Calle San Alfonso 35"^^xsd:string;
+    ex:nationality "Spanish"^^xsd:string;
+    ex:gender "male"^^xsd:string;
+    ex:researchField "Open Data"^^xsd:string;
+    ex:email "ocorcho@fi.upm.es"^^xsd:string;
+    ex:hasDegree <https://w3id.org/example/resource/Degree/PhD>.

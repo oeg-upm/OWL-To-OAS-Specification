@@ -1,0 +1,22 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#>.
+@prefix ex: <https://w3id.org/example#>.
+@prefix ex-resource: <https://w3id.org/example/resource/>.
+
+<https://w3id.org/example/resource/Course/105000057> a ex:Course;
+    ex:courseName "WEB OF LINKED DATA AND SEMANTIC WEB"^^xsd:string;
+    ex:description "The objective of this course is to gain theoretical and practical knowledge about the methodological and technological foundations of the generation and publication of vocabularies and data on the Web of Linked Data as well as knowledge graphs."^^xsd:string;
+    ex:ects "6"^^xsd:integer.
+<https://w3id.org/example/resource/Course/105000443> a ex:Course;
+    ex:courseName "PROGRAMING SCALABLE SYSTEMS"^^xsd:string;
+    ex:description "The development of new applications or services with a strong presence on the Internet (such as social network applications) present great challenges for example: design and programming of back-ends (services) that support the popularization of the application design and programming of front- ends (mobile applications and web applications) with good user experience and efficient access to the back-end. The course focuses on the design and programming of the back-end of these types of applications."^^xsd:string;
+    ex:ects "3"^^xsd:integer.
+<https://w3id.org/example/resource/Course/105000395> a ex:Course;
+    ex:courseName "INTRODUCTION TO BIOINFORMATICS AND BIOCOMPUTING"^^xsd:string;
+    ex:description "The course will be addressed to the students interested in Bioinformatics and research the students will be exposed both to the basics of the Bioinformatics field and also to recent results in the area and closely related areas."^^xsd:string;
+    ex:ects "3"^^xsd:integer.
+<https://w3id.org/example/resource/Course/105000396> a ex:Course;
+    ex:courseName "PROGRAMMING FOR MOBILE DEVICES"^^xsd:string;
+    ex:description "This course introduces the fundamentals of programming techniques for mobile devices and more concretely to android basics development. Students will learn how to design and implement mobile applications following user interfaces design good practice and how user interface systems are integrated with mobile operating system."^^xsd:string;
+    ex:ects "6"^^xsd:integer.

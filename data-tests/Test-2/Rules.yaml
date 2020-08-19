@@ -1,0 +1,14 @@
+prefixes:
+  ex: "https://w3id.org/example#"
+  ex-resource: "https://w3id.org/example/resource/"
+
+mappings:
+  course:
+   sources:
+     - ['Courses.csv~csv']
+   s: ex-resource:Course/$(Identifier)
+   po:
+     - [a, ex:Course]
+     - [ex:courseName, $(Name), xsd:string]
+     - [ex:description, $(Description), xsd:string]
+     - [ex:ects, $(ECTS), xsd:integer]

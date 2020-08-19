@@ -1,0 +1,226 @@
+openapi: 3.0.1
+info:
+  description: This the test API for the restrictions example ontology
+  title: Restrictions example ontology
+  version: v1.5.0
+externalDocs:
+  description: Restrictions example ontology
+  url: https://w3id.org/example
+servers:
+- url: http://localhost:8080/v1.5.0
+paths:
+  /courses:
+    get:
+      description: Gets a list of all instances of Course (more information in https://w3id.org/example#Course)
+      parameters:
+      - description: Name of the user graph to query
+        in: query
+        name: username
+        required: false
+        schema:
+          type: string
+      - description: Filter by label
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+      - description: Page number
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+      - description: Items per page
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 200
+          minimum: 1
+          type: integer
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Course'
+                type: array
+          description: Successful response - returns an array with the instances of
+            Course.
+      summary: List all instances of Course
+      tags:
+      - Course
+    post:
+      description: Create a new instance of Course (more information in https://w3id.org/example#Course)
+      parameters:
+      - description: Username
+        in: path
+        name: user
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Course'
+        description: Information about the Courseto be created
+      responses:
+        201:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+          description: Created
+      security:
+      - BearerAuth: []
+      summary: Create one Course
+      tags:
+      - Course
+  /courses/{id}:
+    delete:
+      description: Delete an existing Course (more information in https://w3id.org/example#Course)
+      parameters:
+      - description: The ID of the Course to be retrieved
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - description: Username
+        in: path
+        name: user
+        required: false
+        schema:
+          type: string
+      responses:
+        202:
+          description: Deleted
+        404:
+          description: Not Found
+      security:
+      - BearerAuth: []
+      summary: Delete an existing Course
+      tags:
+      - Course
+    get:
+      description: Gets the details of a given Course (more information in https://w3id.org/example#Course)
+      parameters:
+      - description: Name of the user graph to query
+        in: query
+        name: username
+        required: false
+        schema:
+          type: string
+      - description: The ID of the Course to be retrieved
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+          description: Gets the details of a given Course
+      summary: Get a single Course by its id
+      tags:
+      - Course
+    put:
+      description: Updates an existing Course (more information in https://w3id.org/example#Course)
+      parameters:
+      - description: The ID of the Course to be retrieved
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - description: Username
+        in: path
+        name: user
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Course'
+        description: An old Courseto be updated
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+          description: Updated
+        404:
+          description: Not Found
+      security:
+      - BearerAuth: []
+      summary: Update an existing Course
+      tags:
+      - Course
+components:
+  schemas:
+    Course:
+      description: Description not available
+      properties:
+        ects:
+          description: Description not available
+          items:
+            anyOf:
+            - format: double
+              type: number
+            - format: int32
+              type: integer
+          nullable: true
+          type: array
+        courseName:
+          description: Description not available
+          items:
+            type: string
+          nullable: true
+          type: array
+        isTaughtBy:
+          description: Description not available
+          items:
+            $ref: '#/components/schemas/Professor'
+          nullable: false
+          type: array
+        hasStudentEnrolled:
+          description: Description not available
+          items:
+            $ref: '#/components/schemas/Student'
+          maxItems: 20
+          nullable: true
+          type: array
+        description:
+          description: small description
+          items:
+            type: string
+          nullable: true
+          type: array
+        hasStudyMaterial:
+          description: Description not available
+          items:
+            $ref: '#/components/schemas/StudyMaterial'
+          nullable: false
+          type: array
+        hasEvaluationMethod:
+          description: Description not available
+          items:
+            allOf:
+            - $ref: '#/components/schemas/Assignment'
+            - $ref: '#/components/schemas/Exam'
+          nullable: true
+          type: array
+      type: object

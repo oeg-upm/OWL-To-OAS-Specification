@@ -1,0 +1,22 @@
+prefixes:
+  ex: "https://w3id.org/example#"
+  ex-resource: "https://w3id.org/example/resource/"
+
+mappings:
+  professor:
+    sources:
+      - ['Professors.csv~csv']
+    s: ex-resource:Professor/$(Identifier)
+    po:
+      - [a, ex:ProfessorInArtificialIntelligence]
+      - [ex:identifier, $(Identifier), xsd:string]
+      - [ex:name, $(Name), xsd:string]
+      - [ex:birthDate, $(BirthDate), xsd:dateTime]
+      - [ex:address, $(Address), xsd:string]
+      - [ex:nationality, $(Nationality), xsd:string]
+      - [ex:gender, $(Gender), xsd:string]
+      - [ex:researchField, $(ResearchField), xsd:string]
+      - [ex:email, $(Email), xsd:string]
+      - [ex:hasDegree, ex-resource:Degree/$(Degree)~iri, xsd:anyURI]
+      - [ex:belongsTo, ex-resource:Department/ArtificialIntelligenceDepartment, xsd:anyURI]
+      - [ex:worksIn, ex-resource:University/$(worksIn)~iri, xsd:anyURI]

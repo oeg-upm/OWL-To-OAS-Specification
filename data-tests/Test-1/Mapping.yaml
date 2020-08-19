@@ -1,0 +1,268 @@
+openapi: 3.0.1
+info:
+  description: This the test API for the restrictions example ontology
+  title: Restrictions example ontology
+  version: v1.5.0
+externalDocs:
+  description: Restrictions example ontology
+  url: https://w3id.org/example
+servers:
+- url: http://localhost:8080/v1.5.0
+paths:
+  /professors:
+    get:
+      description: Gets a list of all instances of Professor (more information in
+        https://w3id.org/example#Professor)
+      parameters:
+      - description: Name of the user graph to query
+        in: query
+        name: username
+        required: false
+        schema:
+          type: string
+      - description: Filter by label
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+      - description: Page number
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+      - description: Items per page
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 200
+          minimum: 1
+          type: integer
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Professor'
+                  type: array
+          description: Successful response - returns an array with the instances of
+          Professor.
+      summary: List all instances of Professor
+      tags:
+        - Professor
+    post:
+      description: Create a new instance of Professor (more information in https://w3id.org/example#Professor)
+      parameters:
+      - description: Username
+        in: path
+        name: user
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Professor'
+        description: Information about the Professor to be created
+      responses:
+        201:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Professor'
+          description: Created
+      security:
+      - BearerAuth: []
+      summary: Create one Professor
+      tags:
+      - Professor
+  /professors/{id}:
+    delete:
+      description: Delete an existing Professor (more information in https://w3id.org/example#Professor)
+      parameters:
+      - description: The ID of the Professor to be retrieved
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - description: Username
+        in: path
+        name: user
+        required: false
+        schema:
+          type: string
+      responses:
+        202:
+          description: Deleted
+        404:
+          description: Not Found
+      security:
+      - BearerAuth: []
+      summary: Delete an existing Professor
+      tags:
+      - Professor
+    get:
+      description: Gets the details of a given Professor (more information in https://w3id.org/example#Professor)
+      parameters:
+      - description: Name of the user graph to query
+        in: query
+        name: username
+        required: false
+        schema:
+          type: string
+      - description: The ID of the Professor to be retrieved
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Professor'
+          description: Gets the details of a given Professor
+      summary: Get a single Professor by its id
+      tags:
+      - Professor
+    put:
+      description: Updates an existing Professor (more information in https://w3id.org/example#Professor)
+      parameters:
+      - description: The ID of the Professor to be retrieved
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - description: Username
+        in: path
+        name: user
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Professor'
+        description: An old Professorto be updated
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Professor'
+          description: Updated
+        404:
+          description: Not Found
+      security:
+      - BearerAuth: []
+      summary: Update an existing Professor
+      tags:
+      - Professor
+components:
+  schemas:
+    Professor:
+      type: object
+      description: Description not available
+      properties:
+        identifier:
+          description: Description not available
+          items:
+            type: string
+          maxItems: 1
+          nullable: true
+          type: array
+        address:
+          description: Description not available
+          items:
+            maxItems: 1
+            type: string
+          nullable: true
+          type: array
+        gender:
+          description: Description not available
+          items:
+            enum:
+            - female
+            - male
+            type: string
+          nullable: true
+          type: array
+        teachesCourse:
+          description: Description not available
+          items:
+            $ref: '#/components/schemas/Course'
+          nullable: false
+          type: array
+        birthDate:
+          description: Description not available
+          items:
+            format: date-time
+            type: string
+          maxItems: 1
+          nullable: true
+          type: array
+        worksIn:
+          description: Description not available
+          items:
+            $ref: '#/components/schemas/University'
+          nullable: false
+          type: array
+        teachesTo:
+          description: Description not available
+          items:
+            $ref: '#/components/schemas/Student'
+          nullable: true
+          type: array
+        hasDegree:
+          description: Description not available
+          items:
+            enum:
+            - <https://w3id.org/example/resource/Degree/MS>
+            - <https://w3id.org/example/resource/Degree/PhD>
+            format: uri
+            type: string
+          nullable: false
+          type: array
+        nationality:
+          description: Description not available
+          items:
+            type: string
+          nullable: true
+          type: array
+        name:
+          description: Description not available
+          items:
+            type: string
+          nullable: true
+          type: array
+        researchField:
+          description: Description not available
+          items:
+            minItems: 1
+            type: string
+          nullable: true
+          type: array
+        belongsTo:
+          description: Description not available
+          items:
+            $ref: '#/components/schemas/Department'
+          nullable: true
+          type: array
+        email:
+          description: Description not available
+          items:
+            type: string
+          nullable: true
+          type: array
